@@ -1,0 +1,24 @@
+public class GoTooFar
+{
+	public static void main(String[] args)
+	{
+		final int[] smallArray = {2, 3, 5, 7, 11};
+		int i = 0;
+
+		try
+		{
+			while(true)
+			{
+				System.out.println(i + ": " + smallArray[i]);
+				i++;
+			}
+		}
+		catch(ArrayIndexOutOfBoundsException tooFar)
+		{
+			System.out.println("Now you've gone too far");
+		}
+    finally{
+      System.out.println("Done!");
+      }
+	}
+}
