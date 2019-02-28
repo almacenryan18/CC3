@@ -1,0 +1,22 @@
+
+package asdf;
+import java.util.Scanner;
+
+public class Asdf {
+
+  
+    public static void main(String[] args) {
+      
+    Scanner sc = new Scanner(System.in);
+    
+        System.out.println("Enter a number: ");
+        try{
+        String s = sc.next();
+        
+        int g ;
+        g = Integer.parseInt(s);
+        }catch(NumberFormatException e){
+            System.out.println(e);
+        }
+        }
+}
