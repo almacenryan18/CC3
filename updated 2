@@ -1,0 +1,21 @@
+
+public class Asd {
+
+    public static void main(String[] args) {
+        final int[] smallArray = {1, 2, 3, 4, 5};
+        int i = 0;
+
+        try {
+            while (true) {
+                System.out.println(i + 1 + ": " + smallArray[i]);
+                i++;
+            }
+
+            System.out.println("Now you've gone too far");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("You've gone too far");
+        } finally {
+            System.out.println("Done!");
+        }
+    }
+}
