@@ -11,6 +11,7 @@ public class SpongeBob extends Panel implements KeyListener {
             B1x = 455, B1y = 460, b = 200, bb = 290, c = 400, cc = 200, d = 200, dd = 300, b1 = 100, c1 = 500, p = 100, po = 400, pi = 250, armbody = 595, hand = 645,
             armdot = 660, hand1 = 665, hand2 = 660, arm = 575, arm1 = 645, arm2 = 680, m = 1100, m1 = 1105, m2 = 1110, s1 = 1111, fp = 1050, fp1 = 1090, fp2 = 1090,
             fp3 = 1075, fp4 = 1075, fp5 = 1065, fp6 = 1065, fp7 = 1050, fo = 1050, fo1 = 1050;
+    static Color cu, cuu;
 
     public void paint(Graphics g) {
         g.setColor(Color.black);
@@ -55,7 +56,7 @@ public class SpongeBob extends Panel implements KeyListener {
         g.fillRect(220, 500, 10, 10);
         g.setColor(new Color(165, 42, 42));      // ARC
         g.fillArc(0, 530, 400, 500, 0, 180);
-        g.setFont(new Font("Century Gothic",Font.BOLD, 70));    
+        g.setFont(new Font("Century Gothic", Font.BOLD, 70));
         g.setColor(new Color(178, 255, 102));                   // text
         g.drawString("H", 280, 100);
         g.setColor(new Color(255, 255, 0));
@@ -146,7 +147,7 @@ public class SpongeBob extends Panel implements KeyListener {
         g.fillRect(520, 705, 5, 20);
         g.fillRect(420, 725, 5, 60);
         g.fillRect(530, 725, 5, 60);
-        g.setColor(Color.yellow);           // yellow
+        g.setColor(cuu);           // yellow
         g.fillRect(355, 565, 30, 50);
         g.fillRect(345, 565, 10, 20);
         g.fillRect(345, 505, 30, 60);
@@ -188,7 +189,7 @@ public class SpongeBob extends Panel implements KeyListener {
         g.setColor(new Color(139, 69, 19));  // baba pants dark brown
         g.fillRect(415, 705, 40, 20);
         g.fillRect(525, 705, 40, 20);
-        g.setColor(Color.yellow);           // yellow
+        g.setColor(cuu);           // yellow
         g.fillRect(425, 725, 20, 60);
         g.fillRect(535, 725, 20, 60);
         // HANDS
@@ -317,7 +318,7 @@ public class SpongeBob extends Panel implements KeyListener {
         int s[] = {480, 520, 500};
         int t[] = {625, 625, 645};
         g.fillPolygon(s, t, 3);                   // POLy 
-        g.setColor(Color.yellow);
+        g.setColor(cuu);
         g.fillRect(315, m, 20, 30);
         g.setColor(new Color(105, 105, 105));  // drak gay
         int ss[] = {fp, fp1, fp2, fp3, fp4, fp5, fp6, fp7};
@@ -328,13 +329,16 @@ public class SpongeBob extends Panel implements KeyListener {
         g.fillRect(315, m2, 20, 5);
         g.fillRect(305, s1, 20, 30);      // spat
         g.fillRect(305, fo, 5, 30);
-        g.fillRect(323, fo1, 5, 30);                                       
+        g.fillRect(323, fo1, 5, 30);
     }
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Character");
         name = JOptionPane.showInputDialog(
-                "Enter your name: ");
+                "Enter a name: ");
+        String choices[] = {"Yellow", "Orange", "Pink"};
+        String color = (String) JOptionPane.showInputDialog(null, "Choose a Color", "Color", JOptionPane.QUESTION_MESSAGE, null, choices, choices[0]);
+        cuu = convert(color);
         SpongeBob panel = new SpongeBob();
         panel.addKeyListener(panel);
         frame.add(panel);
@@ -651,5 +655,17 @@ public class SpongeBob extends Panel implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    public static Color convert(String c) {
+        switch (c) {
+            case "Yellow":
+                return Color.yellow;
+            case "Orange":
+                return Color.orange;
+            case "Pink":
+                return Color.PINK;
+        }
+        return Color.YELLOW;
     }
 }
