@@ -1,0 +1,655 @@
+
+import javax.swing.JFrame;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.JOptionPane;
+
+public class SpongeBob extends Panel implements KeyListener {
+
+    static String name = "";
+    static int VcrossX = 550, VcrossY = 460, HcrossX = 540, HcrossY = 470, B2x = 540, B2y = 460, VcrossX1 = 465, VcrossY1 = 460, HcrossX1 = 455, HcrossY1 = 470,
+            B1x = 455, B1y = 460, b = 200, bb = 290, c = 400, cc = 200, d = 200, dd = 300, b1 = 100, c1 = 500, p = 100, po = 400, pi = 250, armbody = 595, hand = 645,
+            armdot = 660, hand1 = 665, hand2 = 660, arm = 575, arm1 = 645, arm2 = 680, m = 1100, m1 = 1105, m2 = 1110, s1 = 1111, fp = 1050, fp1 = 1090, fp2 = 1090,
+            fp3 = 1075, fp4 = 1075, fp5 = 1065, fp6 = 1065, fp7 = 1050, fo = 1050, fo1 = 1050;
+
+    public void paint(Graphics g) {
+        g.setColor(Color.black);
+        //g.drawLine(500, 0, 500, 1000);  // BASIS
+        //g.drawLine(0, 500, 1000, 500); // BASIS
+        g.fillRect(0, 820, 1000, 5);
+        g.setColor(new Color(0, 100, 0));  // green
+        g.fillRect(0, 825, 1000, 15);
+        g.setColor(new Color(0, 128, 0));
+        g.fillRect(0, 840, 1000, 25);
+        g.setColor(new Color(34, 139, 34));
+        g.fillRect(0, 865, 1000, 45);
+        g.setColor(new Color(50, 205, 50)); // last green
+        g.fillRect(0, 910, 1000, 100);
+        g.setColor(new Color(100, 149, 237)); // blue
+        g.fillRect(0, 0, 1000, 770);
+        g.setColor(new Color(222, 184, 135)); // sand
+        g.fillRect(0, 770, 1000, 50);
+        g.setColor(new Color(194, 178, 128));
+        g.fillRect(0, 765, 1000, 15);
+        g.setColor(new Color(50, 74, 178)); // violet blue
+        int vs[] = {790, 920, 900, 820};
+        int vt[] = {620, 620, 770, 770};
+        g.fillPolygon(vs, vt, 4);
+        g.fillRect(860, 580, 20, 40);
+        g.fillRect(840, 580, 20, 20);
+        g.fillRect(840, 560, 20, 20);
+        g.fillRect(905, 700, 20, 10);
+        g.fillRect(915, 690, 10, 10);
+        g.setColor(new Color(104, 88, 243));
+        g.fillOval(865, 715, 30, 30);
+        g.fillOval(815, 645, 40, 40);
+        g.setColor(new Color(115, 129, 241));
+        g.fillOval(820, 650, 30, 30);
+        g.fillOval(870, 720, 20, 20);
+        g.setColor(new Color(205, 133, 63)); // patrick
+        g.fillRect(200, 490, 10, 50);
+        g.fillRect(180, 490, 50, 10);
+        g.fillRect(190, 480, 10, 10);
+        g.fillRect(180, 500, 10, 10);
+        g.fillRect(210, 480, 20, 10);
+        g.fillRect(220, 500, 10, 10);
+        g.setColor(new Color(165, 42, 42));      // ARC
+        g.fillArc(0, 530, 400, 500, 0, 180);
+        g.setFont(new Font("Century Gothic",Font.BOLD, 70));    
+        g.setColor(new Color(178, 255, 102));                   // text
+        g.drawString("H", 280, 100);
+        g.setColor(new Color(255, 255, 0));
+        g.drawString("E", 330, 100);
+        g.setColor(new Color(204, 204, 0));
+        g.drawString("L", 365, 100);
+        g.setColor(new Color(0, 255, 0));
+        g.drawString("L", 400, 100);
+        g.setColor(new Color(51, 255, 153));
+        g.drawString("O", 430, 100);
+        g.setColor(new Color(0, 255, 255));
+        g.drawString(name, 510, 100);
+        g.setColor(Color.white);               // bubbles
+        g.drawOval(200, b, 50, 50);
+        g.drawOval(250, bb, 30, 30);
+        g.drawOval(150, c, 70, 70);
+        g.drawOval(600, cc, 30, 30);
+        g.drawOval(500, d, 60, 60);
+        g.drawOval(400, dd, 50, 50);
+        g.drawOval(380, b1, 25, 25);
+        g.drawOval(700, c1, 60, 60);
+        g.drawOval(800, p, 10, 10);
+        g.drawOval(750, po, 30, 30);
+        g.drawOval(700, pi, 40, 40); // bubbles
+        g.setColor(Color.black); // black
+        g.fillRect(355, 380, 260, 5);
+        g.fillRect(385, 615, 230, 10);
+        g.fillRect(615, 385, 5, 230);
+        g.setColor(new Color(153, 153, 0));              // dark yellow
+        g.fillRect(355, 385, 10, 60);
+        g.fillRect(365, 445, 10, 60);
+        g.fillRect(375, 505, 10, 60);
+        g.fillRect(385, 565, 10, 50);
+        g.setColor(Color.BLACK); // black
+        g.fillRect(355, 615, 30, 10);
+        g.fillRect(355, 385, 5, 10);
+        g.fillRect(345, 395, 5, 10);
+        g.fillRect(340, 395, 5, 10);
+        g.fillRect(330, 405, 5, 10);
+        g.fillRect(320, 415, 5, 20);
+        g.fillRect(310, 435, 5, 10);
+        g.fillRect(300, 445, 5, 20);
+        g.fillRect(310, 465, 5, 20);
+        g.fillRect(310, 485, 5, 10);
+        g.fillRect(320, 495, 5, 20);
+        g.fillRect(320, 515, 5, 10);       // RIGHT BODY
+        g.fillRect(330, 525, 5, 20);
+        g.fillRect(330, 545, 5, 10);
+        g.fillRect(340, 555, 5, 20);
+        g.fillRect(340, 575, 5, 10);
+        g.fillRect(350, 585, 5, 20);
+        g.fillRect(350, 605, 5, 10);
+        g.fillRect(355, 625, 10, 70);
+        g.fillRect(385, 625, 10, 70);
+        g.fillRect(615, 625, 5, 70);
+        g.fillRect(355, 645, 260, 10);
+        g.fillRect(355, 695, 260, 10);
+        g.setColor(Color.white);                         // white  
+        g.fillRect(365, 625, 10, 10);
+        g.fillRect(365, 635, 10, 10);
+        g.fillRect(375, 625, 10, 10);
+        g.fillRect(375, 635, 10, 10);
+        g.fillRect(395, 625, 220, 20);
+        g.setColor(new Color(160, 82, 45));           // brown
+        g.fillRect(405, 655, 210, 10);
+        g.fillRect(395, 665, 220, 10);
+        g.fillRect(395, 685, 220, 10);
+        g.fillRect(395, 675, 20, 10);
+        g.fillRect(445, 675, 20, 10);
+        g.fillRect(495, 675, 20, 10);
+        g.fillRect(545, 675, 20, 10);
+        g.fillRect(595, 675, 20, 10);
+        g.setColor(new Color(139, 69, 19));       // darker brown
+        g.fillRect(375, 675, 10, 10);
+        g.fillRect(365, 685, 20, 10);
+        g.fillRect(365, 655, 10, 10);
+        g.fillRect(365, 665, 20, 10);
+        g.fillRect(375, 655, 10, 10);
+        g.fillRect(395, 655, 10, 40);
+        g.fillRect(405, 675, 10, 20);
+        g.setColor(Color.BLACK);                        // black
+        g.fillRect(415, 675, 30, 10); // BELT
+        g.fillRect(365, 675, 10, 10); // belt
+        g.fillRect(465, 675, 30, 10); // BELT
+        g.fillRect(515, 675, 30, 10); // BELT
+        g.fillRect(565, 675, 30, 10); // BELT                         
+        g.fillRect(410, 705, 5, 20);  // shadow half down
+        g.fillRect(520, 705, 5, 20);
+        g.fillRect(420, 725, 5, 60);
+        g.fillRect(530, 725, 5, 60);
+        g.setColor(Color.yellow);           // yellow
+        g.fillRect(355, 565, 30, 50);
+        g.fillRect(345, 565, 10, 20);
+        g.fillRect(345, 505, 30, 60);
+        g.fillRect(335, 505, 10, 50);
+        g.fillRect(325, 495, 10, 30);
+        g.fillRect(325, 495, 40, 10);
+        g.fillRect(315, 445, 50, 50);
+        g.fillRect(305, 445, 10, 20);
+        g.fillRect(315, 435, 10, 10);
+        g.fillRect(325, 415, 30, 30);
+        g.fillRect(335, 405, 20, 10);
+        g.fillRect(345, 395, 10, 10);
+        g.fillRect(395, 385, 220, 230);
+        g.fillRect(385, 385, 10, 180);
+        g.fillRect(375, 385, 10, 120);
+        g.fillRect(365, 385, 10, 60);
+        g.fillRect(295, 575, 30, 20);
+        g.fillRect(635, 575, 20, 20);
+        g.setColor(new Color(153, 153, 0));  // dark YELLOW
+        g.fillRect(350, 395, 10, 10);
+        g.fillRect(345, 395, 10, 10);
+        g.fillRect(335, 405, 10, 10);
+        g.fillRect(325, 415, 10, 20);
+        g.fillRect(315, 435, 10, 10);
+        g.fillRect(305, 445, 10, 20);
+        g.fillRect(315, 465, 10, 20);
+        g.fillRect(315, 485, 10, 10);
+        g.fillRect(325, 495, 10, 20);
+        g.fillRect(325, 515, 10, 10);
+        g.fillRect(335, 525, 10, 20);
+        g.fillRect(335, 545, 10, 10);
+        g.fillRect(345, 555, 10, 20);
+        g.fillRect(345, 575, 10, 10);
+        g.fillRect(355, 585, 10, 20);
+        g.fillRect(355, 605, 10, 10);
+        g.setColor(Color.white);            // white
+        g.fillRect(325, 575, 40, 30);
+        g.fillRect(620, 575, 15, 30);
+        g.setColor(new Color(139, 69, 19));  // baba pants dark brown
+        g.fillRect(415, 705, 40, 20);
+        g.fillRect(525, 705, 40, 20);
+        g.setColor(Color.yellow);           // yellow
+        g.fillRect(425, 725, 20, 60);
+        g.fillRect(535, 725, 20, 60);
+        // HANDS
+        g.fillRect(295, armbody, 20, 50);   //.... lower arm left                                           
+        g.fillRect(635, 595, 20, 50);      // right
+        g.fillRect(290, hand, 30, 35); //....
+        g.fillRect(295, hand1, 35, 20); //....
+        g.fillRect(325, hand2, 10, 20); //....      
+        g.fillRect(630, 645, 30, 35);
+        g.fillRect(620, 665, 35, 20);
+        g.fillRect(620, 660, 5, 5);
+        g.setColor(Color.black);        // black
+        g.fillRect(320, armdot, 5, 5);
+        g.fillRect(625, 645, 5, 20);
+        //hands shadow
+        g.fillRect(290, arm, 5, 70); // left                                              
+        g.fillRect(285, arm1, 5, 35);
+        g.fillRect(290, arm2, 5, 5);
+        g.fillRect(630, 605, 5, 40);//right
+        //nose
+        g.fillRect(500, 500, 90, 10);
+        g.fillRect(510, 520, 70, 10);
+        g.fillRect(580, 510, 10, 10);
+        g.fillRect(490, 500, 10, 10);
+        //eyes    
+        g.setColor(Color.white);            // white
+        g.fillRect(440, 430, 40, 10);
+        g.fillRect(430, 440, 60, 10);
+        g.fillRect(420, 450, 160, 40);
+        g.fillRect(430, 490, 150, 10);
+        g.fillRect(450, 500, 40, 10);//left
+        g.fillRect(520, 430, 40, 10);
+        g.fillRect(510, 440, 60, 10);
+        g.setColor(new Color(65, 105, 255));   // blue
+        g.fillRect(B2x, B2y, 30, 30);
+        g.fillRect(B1x, B1y, 30, 30);
+        g.setColor(Color.black);                // black
+        g.fillRect(500, 450, 10, 50);
+        g.fillRect(490, 440, 10, 10);
+        g.fillRect(480, 430, 10, 10);
+        g.fillRect(440, 420, 40, 10);
+        g.fillRect(430, 430, 10, 10);
+        g.fillRect(420, 440, 10, 10);
+        g.fillRect(410, 450, 10, 40);
+        g.fillRect(420, 490, 10, 10);
+        g.fillRect(430, 500, 20, 10);
+        g.fillRect(450, 510, 40, 10); // end of left eye
+        g.fillRect(510, 440, 10, 10);
+        g.fillRect(520, 430, 10, 10);
+        g.fillRect(530, 420, 30, 10);
+        g.fillRect(560, 430, 10, 10);
+        g.fillRect(570, 440, 10, 10);
+        g.fillRect(580, 450, 7, 40);   // size 7
+        g.fillRect(570, 490, 10, 10); // end of right eye
+        g.fillRect(VcrossX, VcrossY, 10, 30);                   //  Cross
+        g.fillRect(HcrossX, HcrossY, 30, 10); // cross right
+        g.fillRect(VcrossX1, VcrossY1, 10, 30);
+        g.fillRect(HcrossX1, HcrossY1, 30, 10);    // cross left
+        g.fillRect(445, 410, 5, 10);
+        g.fillRect(465, 410, 5, 10);
+        g.fillRect(535, 410, 5, 10);
+        g.fillRect(550, 410, 5, 10);
+        // mouth
+        g.fillRect(560, 530, 5, 35);
+        g.fillRect(460, 540, 100, 10);
+        g.fillRect(450, 530, 10, 10);
+        g.fillRect(430, 520, 20, 10);
+        g.fillRect(470, 550, 90, 15);
+        g.fillRect(480, 565, 30, 15);
+        g.fillRect(520, 565, 30, 15);
+        g.setColor(Color.white);                //white
+        g.fillRect(480, 550, 30, 15);
+        g.fillRect(520, 550, 30, 15); // end of face
+        // shoes
+        g.fillRect(420, 785, 30, 10);
+        g.fillRect(430, 795, 10, 10);
+        g.fillRect(440, 805, 20, 5); // end of left 
+        g.fillRect(530, 785, 30, 10);
+        g.fillRect(540, 795, 10, 10);
+        g.fillRect(550, 805, 20, 10); // enf of right
+        g.setColor(Color.black);            // black
+        g.fillRect(450, 785, 5, 10);
+        g.fillRect(410, 785, 10, 40);
+        g.fillRect(420, 795, 10, 10);
+        g.fillRect(440, 795, 20, 10);
+        g.fillRect(420, 805, 20, 10);
+        g.fillRect(460, 805, 10, 10);
+        g.fillRect(410, 810, 60, 15); // end of left shoes
+        g.fillRect(560, 785, 5, 10);
+        g.fillRect(520, 785, 10, 40);
+        g.fillRect(530, 795, 10, 10);
+        g.fillRect(550, 795, 20, 10);
+        g.fillRect(530, 805, 20, 10);
+        g.fillRect(570, 805, 10, 10);
+        g.fillRect(520, 810, 60, 15); // end of right shoes
+        // dots
+        g.setColor(new Color(153, 153, 0));    // dark yellow
+        g.fillRect(390, 400, 25, 20);
+        g.fillRect(400, 470, 10, 20);
+        g.fillRect(380, 445, 10, 10);
+        g.fillRect(410, 510, 15, 20);
+        g.fillRect(400, 560, 25, 30);
+        g.fillRect(430, 550, 10, 10);
+        g.fillRect(450, 590, 10, 20);
+        g.fillRect(500, 590, 30, 20);
+        g.fillRect(475, 585, 10, 10);
+        g.fillRect(560, 605, 10, 10);
+        g.fillRect(580, 580, 20, 20);
+        g.fillRect(585, 600, 5, 5);
+        g.fillRect(565, 400, 10, 10);
+        g.fillRect(500, 400, 20, 10);
+        g.fillRect(590, 430, 20, 20);
+        g.fillRect(600, 500, 10, 20);
+        g.fillRect(590, 550, 15, 15);
+        g.fillRect(330, 430, 10, 20);
+        g.fillRect(345, 500, 20, 30);
+        g.setColor(Color.black);
+        g.drawLine(395, 625, 440, 645);         //LINE
+        g.drawLine(440, 645, 480, 625);
+        g.drawLine(520, 625, 565, 645);
+        g.drawLine(565, 645, 605, 625);         // LINE 
+        g.setColor(Color.red);
+        int xs[] = {500, 520, 500, 480};
+        int ys[] = {635, 665, 695, 665};
+        g.fillPolygon(xs, ys, 4);                 // POLY
+        int s[] = {480, 520, 500};
+        int t[] = {625, 625, 645};
+        g.fillPolygon(s, t, 3);                   // POLy 
+        g.setColor(Color.yellow);
+        g.fillRect(315, m, 20, 30);
+        g.setColor(new Color(105, 105, 105));  // drak gay
+        int ss[] = {fp, fp1, fp2, fp3, fp4, fp5, fp6, fp7};
+        int sp[] = {350, 350, 400, 420, 460, 460, 420, 400};
+        g.fillPolygon(ss, sp, 8);
+        g.setColor(Color.black);
+        g.fillRect(315, m1, 20, 5);
+        g.fillRect(315, m2, 20, 5);
+        g.fillRect(305, s1, 20, 30);      // spat
+        g.fillRect(305, fo, 5, 30);
+        g.fillRect(323, fo1, 5, 30);                                       
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Character");
+        name = JOptionPane.showInputDialog(
+                "Enter your name: ");
+        SpongeBob panel = new SpongeBob();
+        panel.addKeyListener(panel);
+        frame.add(panel);
+        frame.setSize(1000, 1050); //width, height
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // cross V UP
+            if (VcrossY <= 450) {
+                VcrossY = 450;
+            } else {
+                VcrossY -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // cross V DOWN
+            if (VcrossY >= 470) {
+                VcrossY = 470;
+            } else {
+                VcrossY += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // cross H UP
+            if (HcrossY <= 460) {
+                HcrossY = 460;
+            } else {
+                HcrossY -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // cross H DOWN
+            if (HcrossY >= 480) {
+                HcrossY = 480;
+            } else {
+                HcrossY += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // blue 2 UP
+            if (B2y <= 450) {
+                B2y = 450;
+            } else {
+                B2y -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // blue 2 DOWN
+            if (B2y >= 470) {
+                B2y = 470;
+            } else {
+                B2y += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // cross V LEFT
+            if (VcrossX <= 520) {
+                VcrossX = 520;
+            } else {
+                VcrossX -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // cross V RIGHT
+            if (VcrossX >= 550) {
+                VcrossX = 550;
+            } else {
+                VcrossX += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // cross H LEFT
+            if (HcrossX <= 510) {
+                HcrossX = 510;
+            } else {
+                HcrossX -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // cross H RIGHT
+            if (HcrossX >= 540) {
+                HcrossX = 540;
+            } else {
+                HcrossX += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // B2x LEFT
+            if (B2x <= 510) {
+                B2x = 510;
+            } else {
+                B2x -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // B2x RIGHT
+            if (B2x >= 540) {
+                B2x = 540;
+            } else {
+                B2x += 5;
+            }
+        }
+        //////////////////////////////////////////////////////////////////////
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // Y1 UP
+            if (VcrossY1 <= 450) {
+                VcrossY1 = 450;
+            } else {
+                VcrossY1 -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // Y1 DOWN
+            if (VcrossY1 >= 470) {
+                VcrossY1 = 470;
+            } else {
+                VcrossY1 += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // cross H1 UP
+            if (HcrossY1 <= 460) {
+                HcrossY1 = 460;
+            } else {
+                HcrossY1 -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // cross H DOWN
+            if (HcrossY1 >= 480) {
+                HcrossY1 = 480;
+            } else {
+                HcrossY1 += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) { // blue 1 UP
+            if (B1y <= 450) {
+                B1y = 450;
+            } else {
+                B1y -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) { // blue 1 DOWN
+            if (B1y >= 470) {
+                B1y = 470;
+            } else {
+                B1y += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // cross V LEFT
+            if (VcrossX1 <= 435) {
+                VcrossX1 = 435;
+            } else {
+                VcrossX1 -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // cross V RIGHT
+            if (VcrossX1 >= 465) {
+                VcrossX1 = 465;
+            } else {
+                VcrossX1 += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // cross H LEFT
+            if (HcrossX1 <= 425) {
+                HcrossX1 = 425;
+            } else {
+                HcrossX1 -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // cross H RIGHT
+            if (HcrossX1 >= 455) {
+                HcrossX1 = 455;
+            } else {
+                HcrossX1 += 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) { // B2x LEFT
+            if (B1x <= 425) {
+                B1x = 425;
+            } else {
+                B1x -= 5;
+            }
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) { // B2x RIGHT
+            if (B1x >= 455) {
+                B1x = 455;
+            } else {
+                B1x += 5;
+            }
+        }
+        if (e.getKeyChar() == 'w') {         // BUBBLES
+            if (b <= 0) {
+                b = 730;
+            } else {
+                b -= 10;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (bb <= 0) {
+                bb = 730;
+            } else {
+                bb -= 5;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (c <= 0) {
+                c = 730;
+            } else {
+                c -= 20;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (cc <= 0) {
+                cc = 730;
+            } else {
+                cc -= 10;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (d <= 0) {
+                d = 730;
+            } else {
+                d -= 17;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (dd <= 0) {
+                dd = 730;
+            } else {
+                dd -= 15;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (b1 <= 0) {
+                b1 = 730;
+            } else {
+                b1 -= 4;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (c1 <= 0) {
+                c1 = 730;
+            } else {
+                c1 -= 15;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (p <= 0) {
+                p = 730;
+            } else {
+                p -= 6;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (po <= 0) {
+                po = 730;
+            } else {
+                po -= 7;
+            }
+        }
+        if (e.getKeyChar() == 'w') {
+            if (pi <= 0) {
+                pi = 730;
+            } else {
+                pi -= 9;
+            }
+        }                                      // BUBBLES
+
+        if (e.getKeyChar() == 'r') {
+            armbody = 525;
+            hand = 490;
+            hand1 = 485;
+            hand2 = 490;
+            arm1 = 490;
+            arm = 525;
+            arm2 = 485;
+            armdot = 1005;
+            m = 495;
+            m1 = 497;
+            m2 = 510;
+            s1 = 455;
+            fp = 290;
+            fp1 = 340;
+            fp2 = 340;
+            fp3 = 320;
+            fp4 = 320;
+            fp5 = 310;
+            fp6 = 310;
+            fp7 = 290;
+            fo = 360;
+            fo1 = 360;
+        }
+        if (e.getKeyChar() == 'e') {
+            armbody = 595;
+            hand = 645;
+            hand1 = 665;
+            hand2 = 660;
+            arm1 = 645;
+            arm = 575;
+            arm2 = 680;
+            armdot = 660;
+            m = 1100;
+            m1 = 1105;
+            m2 = 1110;
+            s1 = 1111;
+            fp = 1050;
+            fp1 = 1090;
+            fp2 = 1090;
+            fp3 = 1075;
+            fp4 = 1075;
+            fp5 = 1065;
+            fp6 = 1065;
+            fp7 = 1050;
+            fo = 1050;
+            fo1 = 1050;
+        }
+
+        repaint();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+}
