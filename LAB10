@@ -1,0 +1,105 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.JFrame;
+public class GraphicsDemo4 extends Panel 
+        implements KeyListener{
+    
+    GraphicsDemo4(){
+    this.setBackground(Color.BLACK);
+    }
+    
+    static int y = 90, x = 100, sa = 25, mouth = 315;
+    static int o = (int) (Math.random()*900);
+    
+    
+    @Override
+    public void paint(Graphics g){
+        g.setColor(Color.yellow);
+        g.fillArc(x, y, 150, 150, sa, mouth);
+        g.setColor(Color.CYAN);
+        g.setFont(new Font("Century Gothic", Font.BOLD, 30));
+        g.drawString("Score: ", 20, 50);
+        
+        
+        
+        for(int i = 0; i<10; i++){
+            int score = 0;
+            g.fillRect(o,o,10,10);
+            if(x== o && y == o){
+                score++;
+
+            }
+        }
+        
+        
+    }
+    public static void main(String args[]){
+        JFrame frame = new JFrame();
+        GraphicsDemo4 panel = new GraphicsDemo4();
+        panel.addKeyListener(panel);
+        frame.add(panel);
+        frame.setSize(1000, 1000);
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(
+            JFrame.EXIT_ON_CLOSE);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {  
+    }
+
+    @Override 
+    public void keyPressed(KeyEvent e) {
+
+        
+       if(e.getKeyCode() == KeyEvent.VK_UP){
+           if(y <= 100)
+               y = (getHeight()-150);
+           else
+                y-=25;
+           
+           sa = 115;
+           if(y % 2 == 0)
+               mouth = 360;
+           else
+               mouth = 315;
+       }
+       if(e.getKeyCode() == KeyEvent.VK_DOWN){
+           if(y >= (getHeight()-150))
+               y=100;
+           else
+               y+=25; 
+           sa = 295;
+           if(y % 2 == 0)
+               mouth = 360;
+           else
+               mouth = 315;
+       }
+       if(e.getKeyCode()== KeyEvent.VK_LEFT){
+           if(x <= 0)
+               x = getWidth()-150;
+           else x-=25;
+           
+           sa = 205;
+           if(x % 2 == 0)
+               mouth = 360;
+           else
+               mouth = 315;
+       }
+       if(e.getKeyCode()==KeyEvent.VK_RIGHT){
+           if(x>=getWidth()-150)
+               x = 0;
+           else x +=25;
+           sa = 25;
+           if(x%2 ==0)
+               mouth = 360;
+           else mouth =315;
+       }
+       repaint();
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
+}
